@@ -81,7 +81,7 @@ app.get("/posts/:postID", function(req, res) {
   const query = req.params.postID;
 
   Post.findById(query, function(err, foundPost){              // search for corresponding post
-    if(err) {                                                // if post found or id match, render corresponding post's page
+    if(foundPost) {                                                // if post found or id match, render corresponding post's page
       res.render("post", {                      
         title: foundPost.title,
         content: foundPost.content
